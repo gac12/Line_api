@@ -5,15 +5,15 @@ var my_id = "Ud563a3856711ffd9a401e97412b64f07"
 
 function doPost(e) {
   var events = JSON.parse(e.postData.contents).events;
+  console.log(e)
   events.forEach(function(event) {
-    console.log(event)
     if(event.type == "message") {
       reply(event);
     }
     else if(event.type == "join"){
       console.log(event)
     }
- });
+  });
 }
 
 function reply(e) {
@@ -61,7 +61,7 @@ function send_message() {
       "Authorization" : "Bearer " + channel_access_token,
     },
     "payload" : JSON.stringify(message),
-     muteHttpExceptions: true,
+    muteHttpExceptions: true,
   };
   
   
