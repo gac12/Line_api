@@ -48,7 +48,7 @@ function reply(e) {
 function send_message() {
   var group_id = "Cca46e7cc0c1da4c06fc3847660e44fcf"
   var message = {
-    "to" : group_id,
+    "to" : my_id,
     "messages" : [
       {
         "type" : "text",
