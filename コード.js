@@ -5,19 +5,21 @@ var my_id = "Ud563a3856711ffd9a401e97412b64f07"
 
 function doPost(e) {
   var events = JSON.parse(e.postData.contents).events;
-  console.log(e)
   events.forEach(function(event) {
+    console.log(event);
     if(event.type == "message") {
+      console.log("Message");
+      console.log(event);
       reply(event);
     }
     else if(event.type == "join"){
+      console.log("join")
       console.log(event)
     }
   });
 }
 
 function reply(e) {
-  console.log(e)
   var message = {
     "replyToken" : e.replyToken,
     "messages" : [
@@ -44,8 +46,9 @@ function reply(e) {
 
 
 function send_message() {
+  var group_id = "Cca46e7cc0c1da4c06fc3847660e44fcf"
   var message = {
-    "to" : my_id,
+    "to" : group_id,
     "messages" : [
       {
         "type" : "text",
@@ -53,7 +56,7 @@ function send_message() {
       }
     ]
   };
-  
+
   var replyData = {
     "method" : "post",
     "headers" : {
@@ -70,5 +73,4 @@ function send_message() {
   
   
 }
-
 
